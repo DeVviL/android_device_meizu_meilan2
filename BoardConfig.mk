@@ -1,6 +1,13 @@
 DEVICE_PATH := device/meizu/meilan2
 VENDOR_PATH := vendor/meizu/meilan2
 
+# NINJA is enabled for fasted building
+# Set 'false' to disable use NINJA
+USE_NINJA := true
+
+# Block based ota
+BLOCK_BASED_OTA := false
+
 USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
