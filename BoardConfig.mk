@@ -41,6 +41,13 @@ TARGET_GLOBAL_CFLAGS   += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_USERIMAGES_USE_EXT4:=true
 
+# NINJA is enabled for fasted building
+# Set 'false' to disable use NINJA
+USE_NINJA := true
+
+# Block based ota
+BLOCK_BASED_OTA := false
+
 # Audio
 #USE_CUSTOM_AUDIO_POLICY := 1
 BOARD_USES_MTK_AUDIO := true
