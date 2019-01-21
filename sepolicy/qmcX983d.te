@@ -4,3 +4,7 @@ type qmcX983d, domain;
 init_daemon_domain(qmcX983d)
 
 #unix_socket_connect(qmcX983d, property, init)
+
+allow qmcX983d gsensor_device:chr_file rw_file_perms;
+allow qmcX983d msensor_device:chr_file rw_file_perms;
+allow qmcX983d sysfs:file rw_file_perms;

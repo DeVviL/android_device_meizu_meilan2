@@ -11,4 +11,5 @@ allow thermal_manager proc_mtkcooler:file rw_file_perms;
 allow thermal_manager proc_mtktz:dir search;
 allow thermal_manager proc_mtktz:file rw_file_perms;
 allow thermal_manager thermal_manager_data_file:dir rw_dir_perms;
-allow thermal_manager thermal_manager_data_file:file create_file_perms;
+
+allow thermal_manager thermal_manager_data_file:file { rw_file_perms setattr };

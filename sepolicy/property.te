@@ -14,3 +14,6 @@ type pq_conf_prop, property_type;
 type audiohal_prop, property_type;
 type ril_mux_report_case_prop, property_type;
 type vold_encryption_type_prop, property_type;
+
+type ctl_qmcX983d_prop, property_type;
+type persist_md_perm_checked_prop, property_type;

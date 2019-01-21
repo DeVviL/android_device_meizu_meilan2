@@ -124,3 +124,8 @@
 /data/.tp(/.*)?                                                 u:object_r:thermal_manager_data_file:s0
 
 /sys/devices/virtual/meizu/ps/ps_calibration                    u:object_r:meizu_ps_calibration_trigger:s0
+
+/data/.tp.settings                                              u:object_r:thermal_manager_data_file:s0
+/dev/CAM_CAL_DRV                                                u:object_r:camera_device:s0
+/dev/block/mmcblk0.*                                            u:object_r:sysmmc_device:s0
+/data/BT_Addr                                                   u:object_r:bt_data_file:s0

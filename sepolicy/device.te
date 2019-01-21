@@ -30,3 +30,5 @@ type protect1_device, dev_type;
 type protect2_device, dev_type;
 type mmc_device, dev_type;
 type mtkbt_device, dev_type;
+
+type sysmmc_device, dev_type;

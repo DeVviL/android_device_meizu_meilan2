@@ -41,3 +41,7 @@ allow mnld mdlog_device:chr_file { read write };
 
 file_type_auto_trans(mnld,system_data_file,mnld_data_file);
 file_type_auto_trans(mnld,apk_data_file,mnld_data_file);
+
+allow mnld wmt_prop:file r_file_perms;
+allow mnld nvram_prop:file r_file_perms;
+allow mnld sysfs:file r_file_perms;

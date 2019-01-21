@@ -5,3 +5,10 @@ init_daemon_domain(msensord)
 
 allow msensord ctl_af7133d_prop:property_service set;
 #unix_socket_connect(msensord, property, init)
+
+allow msensord sysfs:file r_file_perms;
+allow msensord init:unix_stream_socket connectto;
+allow msensord property_socket:sock_file write;
+allow msensord ctl_default_prop:property_service set;
+allow msensord ctl_qmcX983d_prop:property_service set;
+allow msensord ctl_qmcX983d_prop:file r_file_perms;

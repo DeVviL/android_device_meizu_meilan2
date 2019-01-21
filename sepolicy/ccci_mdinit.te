@@ -25,3 +25,12 @@ allow ccci_mdinit mdlog_data_file:file r_file_perms;
 allow ccci_mdinit mdlog_data_file:dir r_dir_perms;
 
 #unix_socket_connect(ccci_mdinit, property, init)
+
+allow ccci_mdinit proc:file r_file_perms;
+allow ccci_mdinit log_device:chr_file w_file_perms;
+allow ccci_mdinit property_socket:sock_file write;
+allow ccci_mdinit init:unix_stream_socket connectto;
+allow ccci_mdinit sysfs:file r_file_perms;
+allow ccci_mdinit nvram_prop:file r_file_perms;
+allow ccci_mdinit log_device:dir search;
+allow ccci_mdinit unlabeled:dir search;
