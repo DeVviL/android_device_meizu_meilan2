@@ -7,15 +7,17 @@ LOCAL_SRC_FILES := \
     mtk_omx.cpp \
     icu55.c \
     icu53.c \
-    ssl.c
+    ssl.c \
+    xlog.c
 
 # only for 32bit libraries
 LOCAL_SRC_FILES_32 := mtk_string.cpp
 # only for 64bit libraries
 LOCAL_SRC_FILES_64 := mtk_parcel.cpp
 
+LOCAL_C_INCLUDES += system/core/include/
 LOCAL_SHARED_LIBRARIES := libbinder libutils liblog libgui libui \
-                          libicuuc libicui18n libcrypto
+                          libicuuc libicui18n libcrypto libcutils
 LOCAL_MODULE := libmtk_symbols
 LOCAL_MODULE_TAGS := optional
 
