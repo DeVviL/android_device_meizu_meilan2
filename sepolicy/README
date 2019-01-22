@@ -8,9 +8,9 @@ in rule
 
 neverallow { domain -init -system_server -dumpstate userdebug_or_eng(`-qti_debugfs_domain')} debugfs:file no_rw_file_perms;
 
-add exception '-surfaceflinger -audioserver -zygote -bootanim -cameraserver' to succeed
+add exception '-surfaceflinger -audioserver -zygote -bootanim -cameraserver -dex2oat' to succeed
 
-neverallow { domain -surfaceflinger -audioserver -zygote -bootanim -cameraserver -init -system_server -dumpstate userdebug_or_eng(`-qti_debugfs_domain')} debugfs:file no_rw_file_perms;
+neverallow { domain -surfaceflinger -audioserver -zygote -bootanim -cameraserver -dex2oat -init -system_server -dumpstate userdebug_or_eng(`-qti_debugfs_domain')} debugfs:file no_rw_file_perms;
 
 in rule
 
@@ -22,11 +22,12 @@ neverallow {
   -installd # for relabelfrom and unlink, check for this in explicit neverallow
 } system_data_file:file no_w_file_perms;
 
-add exception '-nvram_daemon' to succeed
+add exception '-nvram_daemon -thermal_manager' to succeed
 
 neverallow {
   domain
   -nvram_daemon
+  -thermal_manager
   -system_server
   -system_app
   -init

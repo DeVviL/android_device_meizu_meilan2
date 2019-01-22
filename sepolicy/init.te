@@ -10,3 +10,5 @@ allow init tmpfs:lnk_file create;
 allow init mnt_media_rw_file:dir mounton;
 allow init block_device:lnk_file setattr;
 allow init wmtWifi_device:chr_file write;
+
+allow init { domain -lmkd }:process noatsecure;
