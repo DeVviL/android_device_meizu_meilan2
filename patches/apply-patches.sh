@@ -15,5 +15,8 @@ patch -p1 < ../../device/meizu/meilan2/patches/0009-add-mtk-color-format-support
 cd ../..
 cd system/netd
 patch -p1 < ../../device/meizu/meilan2/patches/netd.patch
+cd ..
+cd sepolicy
+patch -p1 < ../../device/meizu/meilan2/patches/sepolicy-modify-rules.patch
 cd ../..
 

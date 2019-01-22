@@ -1,4 +1,5 @@
 To work Selinux in Enforcing mode, you need to modified system sepolicy:
+!-For auto modify use 'sepolicy-modify-rules.patch' in 'patches' folder-!
 
 ============================================
 

@@ -1,0 +1,54 @@
+From 8e06880d675b6bf55679a121be7a46b5aff36521 Mon Sep 17 00:00:00 2001
+From: DeVviL <deuvil.den@gmail.com>
+Date: Tue, 22 Jan 2019 18:57:39 +0300
+Subject: [PATCH] sepolicy: modify rules
+
+---
+ domain.te | 6 ++++--
+ netd.te   | 4 ++--
+ 2 files changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/domain.te b/domain.te
+index 59de1f12..bff2669a 100644
+--- a/domain.te
++++ b/domain.te
+@@ -262,7 +262,7 @@ neverallow { domain -kernel -init -recovery -uncrypt } block_device:blk_file { o
+ # Rather force a relabel to a more specific type.
+ # init is exempt from this as there are character devices that only it uses.
+ # ueventd is exempt from this, as it is managing these devices.
+-neverallow { domain -init -ueventd } device:chr_file { open read write };
++neverallow { domain -cameraserver -init -ueventd } device:chr_file { open read write };
+ 
+ # Limit what domains can mount filesystems or change their mount flags.
+ # sdcard_type / vfat is exempt as a larger set of domains need
+@@ -488,6 +488,8 @@ neverallow ~domain domain:process { transition dyntransition };
+ #
+ neverallow {
+   domain
++  -nvram_daemon
++  -thermal_manager
+   -system_server
+   -system_app
+   -init
+@@ -593,7 +595,7 @@ neverallow * domain:file { execute execute_no_trans entrypoint };
+ # Instead, if access to part of debugfs is desired, it should have a
+ # more specific label.
+ # TODO: fix system_server and dumpstate
+-neverallow { domain -init -system_server -dumpstate userdebug_or_eng(`-qti_debugfs_domain')} debugfs:file no_rw_file_perms;
++neverallow { domain -surfaceflinger -audioserver -zygote -bootanim -cameraserver -dex2oat -untrusted_app -mediacodec -mediaserver -init -system_server -dumpstate userdebug_or_eng(`-qti_debugfs_domain')} debugfs:file no_rw_file_perms;
+ 
+ neverallow {
+   domain
+diff --git a/netd.te b/netd.te
+index 6302073d..84b98388 100644
+--- a/netd.te
++++ b/netd.te
+@@ -95,6 +95,6 @@ neverallow netd system_file:dir_file_class_set write;
+ neverallow netd { app_data_file system_data_file }:dir_file_class_set write;
+ 
+ # only system_server and dumpstate may interact with netd over binder
+-neverallow { domain -system_server -dumpstate } netd_service:service_manager find;
+-neverallow { domain -system_server -dumpstate } netd:binder call;
++neverallow { domain -sysinit -system_server -dumpstate } netd_service:service_manager find;
++neverallow { domain -sysinit -system_server -dumpstate } netd:binder call;
+ neverallow netd { domain -system_server -servicemanager userdebug_or_eng(`-su') }:binder call;
