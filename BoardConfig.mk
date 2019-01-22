@@ -49,7 +49,9 @@ TARGET_USERIMAGES_USE_EXT4:=true
 
 TARGET_BOOTLOADER_BOARD_NAME := mt6735
 
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive
+#Removed androidboot.selinux=permissive
+#Selinux switch to enforcing mode
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
 BOARD_KERNEL_BASE := 0x40078000
 #extracted from stock recovery
 BOARD_KERNEL_PAGESIZE := 2048
