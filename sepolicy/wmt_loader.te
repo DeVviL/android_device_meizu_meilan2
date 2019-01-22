@@ -11,3 +11,5 @@ allow wmt_loader wmt_prop:property_service set;
 #unix_socket_connect(wmt_loader, property, init)
 
 allow wmt_loader wmt_prop:file r_file_perms;
+allow wmt_loader property_socket:sock_file w_file_perms;
+allow wmt_loader init:unix_stream_socket connectto;

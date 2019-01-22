@@ -5,3 +5,6 @@ allow vold protect2_device:blk_file rw_file_perms;
 
 allow vold proc_mtktz:dir r_dir_perms;
 allow vold proc_mtkcooler:dir r_dir_perms;
+allow vold protect_f_data_file:dir r_dir_perms;
+allow vold protect_s_data_file:dir r_dir_perms;
+allow vold nvdata_file:dir r_dir_perms;
