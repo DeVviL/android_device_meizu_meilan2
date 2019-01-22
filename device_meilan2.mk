@@ -22,20 +22,6 @@ TARGET_OTA_ASSERT_DEVICE := meilan2,meizu_m2_mini,m2
 TARGET_PROVIDES_INIT_RC := true
 
 PRODUCT_COPY_FILES += \
-    device/meizu/meilan2/rootdir/init.rc:root/init.rc \
-    device/meizu/meilan2/rootdir/init.target.rc:root/init.target.rc \
-    device/meizu/meilan2/rootdir/init.mt6735.rc:root/init.mt6735.rc \
-    device/meizu/meilan2/rootdir/init.ssd.rc:root/init.ssd.rc \
-    device/meizu/meilan2/rootdir/init.xlog.rc:root/init.xlog.rc \
-    device/meizu/meilan2/rootdir/init.usb.rc:root/init.usb.rc \
-    device/meizu/meilan2/rootdir/init.mt6735.usb.rc:root/init.mt6735.usb.rc \
-    device/meizu/meilan2/rootdir/init.aee.rc:root/init.aee.rc \
-    device/meizu/meilan2/rootdir/init.project.rc:root/init.project.rc \
-    device/meizu/meilan2/rootdir/init.modem.rc:root/init.modem.rc \
-    device/meizu/meilan2/rootdir/init.trace.rc:root/init.trace.rc \
-    device/meizu/meilan2/rootdir/fstab.mt6735:root/fstab.mt6735 \
-    device/meizu/meilan2/rootdir/fstab.swap:root/fstab.swap \
-    device/meizu/meilan2/rootdir/ueventd.rc:root/ueventd.rc \
     device/meizu/meilan2/etc/media_codecs.xml:system/etc/media_codecs.xml \
     device/meizu/meilan2/etc/init/audioserver.rc:system/etc/init/audioserver.rc \
     device/meizu/meilan2/etc/init/mediacodec.rc:system/etc/init/mediacodec.rc \
@@ -66,6 +52,20 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+
+PRODUCT_COPY_FILES += \
+    device/meizu/meilan2/rootdir/init.target.rc:root/init.target.rc \
+    device/meizu/meilan2/rootdir/init.mt6735.rc:root/init.mt6735.rc \
+    device/meizu/meilan2/rootdir/init.ssd.rc:root/init.ssd.rc \
+    device/meizu/meilan2/rootdir/init.xlog.rc:root/init.xlog.rc \
+    device/meizu/meilan2/rootdir/init.mt6735.usb.rc:root/init.mt6735.usb.rc \
+    device/meizu/meilan2/rootdir/init.aee.rc:root/init.aee.rc \
+    device/meizu/meilan2/rootdir/init.project.rc:root/init.project.rc \
+    device/meizu/meilan2/rootdir/init.modem.rc:root/init.modem.rc \
+    device/meizu/meilan2/rootdir/init.trace.rc:root/init.trace.rc \
+    device/meizu/meilan2/rootdir/fstab.mt6735:root/fstab.mt6735 \
+    device/meizu/meilan2/rootdir/fstab.swap:root/fstab.swap \
+    device/meizu/meilan2/rootdir/ueventd.mt6735.rc:root/ueventd.mt6735.rc
 
 #PRODUCT_PACKAGES += \
 #    libion \
