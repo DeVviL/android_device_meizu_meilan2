@@ -1,3 +1,6 @@
 allow mediacodec proc:file r_file_perms;
-allow mediacodec sysfs:file r_file_perms;
+allow mediacodec sysfs:file rw_file_perms;
 allow mediacodec proc_meminfo:file r_file_perms;
+allow mediacodec debugfs:file w_file_perms;
+allow mediacodec camera_device:chr_file r_file_perms;
+allow mediacodec Vcodec_device:chr_file rw_file_perms;

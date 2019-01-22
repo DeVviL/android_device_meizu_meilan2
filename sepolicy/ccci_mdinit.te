@@ -34,3 +34,4 @@ allow ccci_mdinit sysfs:file r_file_perms;
 allow ccci_mdinit nvram_prop:file r_file_perms;
 allow ccci_mdinit log_device:dir search;
 allow ccci_mdinit unlabeled:dir search;
+allow ccci_mdinit mtk_md_prop:file r_file_perms;

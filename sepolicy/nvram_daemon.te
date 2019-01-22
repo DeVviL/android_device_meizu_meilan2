@@ -27,4 +27,4 @@ allow nvram_daemon init:unix_stream_socket connectto;
 allow nvram_daemon sysfs:file r_file_perms;
 allow nvram_daemon bt_data_file:file create_file_perms;
 allow nvram_daemon system_data_file:dir w_dir_perms;
-allow nvram_daemon system_data_file:file { rw_file_perms setattr };
+allow nvram_daemon system_data_file:file create_file_perms;

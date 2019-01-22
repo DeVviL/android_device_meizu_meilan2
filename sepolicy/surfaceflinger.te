@@ -3,3 +3,4 @@ allow surfaceflinger pq_service:service_manager find;
 allow surfaceflinger debug_prop:property_service set;
 
 allow surfaceflinger debugfs:file w_file_perms;
+allow surfaceflinger pq_conf_prop:file r_file_perms;

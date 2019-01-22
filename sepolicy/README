@@ -1,18 +1,22 @@
 To work Selinux in Enforcing mode, you need to modified system sepolicy:
 
----
+============================================
 
 /system/sepolicy/domain.te:
 
-in rule
+============================================
+
+1) in rule
 
 neverallow { domain -init -system_server -dumpstate userdebug_or_eng(`-qti_debugfs_domain')} debugfs:file no_rw_file_perms;
 
-add exception '-surfaceflinger -audioserver -zygote -bootanim -cameraserver -dex2oat' to succeed
+add exception '-surfaceflinger -audioserver -zygote -bootanim -cameraserver -dex2oat -untrusted_app -mediacodec -mediaserver' to succeed
 
-neverallow { domain -surfaceflinger -audioserver -zygote -bootanim -cameraserver -dex2oat -init -system_server -dumpstate userdebug_or_eng(`-qti_debugfs_domain')} debugfs:file no_rw_file_perms;
+neverallow { domain -surfaceflinger -audioserver -zygote -bootanim -cameraserver -dex2oat -untrusted_app -mediacodec -mediaserver -init -system_server -dumpstate userdebug_or_eng(`-qti_debugfs_domain')} debugfs:file no_rw_file_perms;
 
-in rule
+----------
+
+2) in rule
 
 neverallow {
   domain
@@ -34,11 +38,23 @@ neverallow {
   -installd # for relabelfrom and unlink, check for this in explicit neverallow
 } system_data_file:file no_w_file_perms;
 
----
+----------
+
+3) in rule
+
+neverallow { domain -init -ueventd } device:chr_file { open read write };
+
+add exception '-cameraserver' to succeed
+
+neverallow { domain -cameraserver -init -ueventd } device:chr_file { open read write };
+
+============================================
 
 /system/sepolicy/netd.te:
 
-in rules
+============================================
+
+1) in rules
 
 neverallow { domain -system_server -dumpstate } netd_service:service_manager find;
 neverallow { domain -system_server -dumpstate } netd:binder call;
@@ -48,4 +64,4 @@ add exception '-sysinit' to succeed
 neverallow { domain -sysinit -system_server -dumpstate } netd_service:service_manager find;
 neverallow { domain -sysinit -system_server -dumpstate } netd:binder call;
 
----
+============================================

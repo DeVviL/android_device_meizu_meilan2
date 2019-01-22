@@ -1,0 +1,2 @@
+allow untrusted_app debugfs:file w_file_perms;
+allow untrusted_app sysfs:file r_file_perms;

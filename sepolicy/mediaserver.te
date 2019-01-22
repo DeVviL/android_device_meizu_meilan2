@@ -18,3 +18,5 @@ allow mediaserver pq_service:service_manager find;
 
 # Audio
 allow mediaserver audiohal_prop:property_service set;
+
+allow mediaserver debugfs:file w_file_perms;
