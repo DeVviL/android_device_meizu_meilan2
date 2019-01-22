@@ -6,10 +6,18 @@ init_daemon_domain(permission_check)
 #allow permission_check ctl_af7133d_prop:property_service set;
 #unix_socket_connect(permission_check, property, init)
 
-allow permission_check ccci_cfg_file:dir { getattr search };
-allow permission_check ccci_cfg_file:file getattr;
+allow permission_check ccci_cfg_file:dir create_dir_perms;
+allow permission_check ccci_cfg_file:file create_file_perms;
 allow permission_check property_socket:sock_file write;
 allow permission_check init:unix_stream_socket connectto;
 allow permission_check persist_md_perm_checked_prop:property_service set;
 allow permission_check persist_md_perm_checked_prop:file r_file_perms;
-allow permission_check shell_exec:file execute;
+allow permission_check shell_exec:file rx_file_perms;
+allow permission_check toolbox_exec:file rx_file_perms;
+allow permission_check nvdata_file:dir create_dir_perms;
+allow permission_check nvdata_file:file create_file_perms;
+allow permission_check protect_f_data_file:dir create_dir_perms;
+allow permission_check protect_f_data_file:file create_file_perms;
+allow permission_check protect_s_data_file:dir create_dir_perms;
+allow permission_check protect_s_data_file:file create_file_perms;
+allow permission_check permission_check:capability { fowner chown };

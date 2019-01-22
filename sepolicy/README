@@ -1,4 +1,4 @@
-To work Selinux in Enforcing mode, you need to modified 
+To work Selinux in Enforcing mode, you need to modified system sepolicy:
 
 ---
 
@@ -11,6 +11,27 @@ neverallow { domain -init -system_server -dumpstate userdebug_or_eng(`-qti_debug
 add exception '-surfaceflinger -audioserver -zygote -bootanim -cameraserver' to succeed
 
 neverallow { domain -surfaceflinger -audioserver -zygote -bootanim -cameraserver -init -system_server -dumpstate userdebug_or_eng(`-qti_debugfs_domain')} debugfs:file no_rw_file_perms;
+
+in rule
+
+neverallow {
+  domain
+  -system_server
+  -system_app
+  -init
+  -installd # for relabelfrom and unlink, check for this in explicit neverallow
+} system_data_file:file no_w_file_perms;
+
+add exception '-nvram_daemon' to succeed
+
+neverallow {
+  domain
+  -nvram_daemon
+  -system_server
+  -system_app
+  -init
+  -installd # for relabelfrom and unlink, check for this in explicit neverallow
+} system_data_file:file no_w_file_perms;
 
 ---
 
